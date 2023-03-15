@@ -207,7 +207,7 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
         radio.setCurrentRadioStationNumber(9);
         radio.increaseRadioStationNumber();
 
-        int expected = 9;
+        int expected = 0;
         int actual = radio.getCurrentRadioStationNumber();
 
         Assertions.assertEquals(expected, actual);
@@ -232,7 +232,7 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
         radio.setCurrentRadioStationNumber(0);
         radio.decreaseRadioStationNumber();
 
-        int expected = 0;
+        int expected = 9;
         int actual = radio.getCurrentRadioStationNumber();
 
         Assertions.assertEquals(expected, actual);
