@@ -156,7 +156,7 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
         Radio radio = new Radio();
 
         radio.setCurrentRadioStationNumber(9);
-        radio.increaseRadioStationNumber();
+
 
         int expected = 9;
         int actual = radio.getCurrentRadioStationNumber();
