@@ -18,29 +18,32 @@ class RadioTest {
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void shouldIncreaseVolume1() {          //увеличение максимальной громкости
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(99);
         radio.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldDecreaseVolume() {          //уменьшение громкости
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(3);
+        radio.setCurrentVolume(30);
         radio.decreaseVolume();
 
-        int expected = 2;
+        int expected = 29;
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldDecreaseVolume1() {          //уменьшение минимальной громкости
         Radio radio = new Radio();
@@ -52,14 +55,15 @@ class RadioTest {
         int actual = radio.getCurrentVolume();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldMaxVolume() {      //максимальная громкость
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(100);
         radio.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
 
@@ -83,7 +87,7 @@ class RadioTest {
     public void shouldAboveMaxVolume() {         //свыше максимальной громкоси
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(110);
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
@@ -102,30 +106,33 @@ class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldNumberBorderVolume() {               //граничные значения громкости 9
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(9);
+        radio.setCurrentVolume(99);
 
-        int expected = 9;
+        int expected = 99;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
 
     }
-@Test
-public void shouldNumberBorderNegativeVolume() {            // граничные значения громкости 11
+
+    @Test
+    public void shouldNumberBorderNegativeVolume() {            // граничные значения громкости 11
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(101);
 
         int expected = 0;
         int actual = radio.getCurrentVolume();
 
         Assertions.assertEquals(expected, actual);
 
-}
+    }
+
     @Test
     public void shouldNumberBorderVolume1() {               //граничные значения громкости 1
         Radio radio = new Radio();
@@ -138,6 +145,7 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void shouldNumberBorderNegativeVolume1() {            // граничные значения громкости -1
         Radio radio = new Radio();
@@ -200,6 +208,7 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldIncreaseRadioStationNumber1() {              //увеличение  максимального канала
         Radio radio = new Radio();
@@ -212,6 +221,7 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldDecreaseRadioStationNumber() {         //уменьшение канала
         Radio radio = new Radio();
@@ -225,6 +235,7 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
         Assertions.assertEquals(expected, actual);
 
     }
+
     @Test
     public void shouldDecreaseRadioStationNumber1() {         //уменьшение минимального канала
         Radio radio = new Radio();
@@ -237,6 +248,7 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldNumberBorderRadioStation() {                 // граничные каналы 8
         Radio radio = new Radio();
@@ -248,6 +260,7 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldNumberBorderNegativeRadioStation() {           // граничные каналы 10
         Radio radio = new Radio();
@@ -259,6 +272,7 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldNumberBorderRadioStation1() {                 // граничные каналы 1
         Radio radio = new Radio();
@@ -270,6 +284,7 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void shouldNumberBorderNegativeRadioStation1() {                 // граничные каналы -1
         Radio radio = new Radio();
@@ -281,7 +296,50 @@ public void shouldNumberBorderNegativeVolume() {            // граничны�
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void newNumberRadioStation() {                 // новое радио с новыми условиями, текущая 15
+        Radio radio = new Radio(20);
+
+        radio.setCurrentRadioStationNumber(-1);
+
+        int expected = 0;
+        int actual = radio.getCurrentRadioStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
+    @Test
+    public void newBorderNumberRadioStation() {           // новое радио с новыми условиями, текущая 19
+        Radio radio = new Radio(20);
+
+
+        radio.setCurrentRadioStationNumber(19);
+
+        int expected = 19;
+        int actual = radio.getCurrentRadioStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void newBorderNegativeNumberRadioStation() {         // новое радио с новыми условиями, текущая 21
+        Radio radio = new Radio(20);
+
+
+        radio.setCurrentRadioStationNumber(21);
+
+        int expected = 0;
+        int actual = radio.getCurrentRadioStationNumber();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+
 }
+
+
 
 
 
